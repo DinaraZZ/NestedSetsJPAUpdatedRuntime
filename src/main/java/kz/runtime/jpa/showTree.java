@@ -15,7 +15,7 @@ public class ShowTree {
         List<Tree> treeList = treeQuery.getResultList();
 
         for (Tree tree : treeList) {
-            System.out.printf("%s%s\n", "- ".repeat(tree.getLevel().intValue()), tree.getName());
+            System.out.printf("%s%s (%d)\n", "- ".repeat(tree.getLevel().intValue()), tree.getName(), tree.getId());
         }
     }
 }

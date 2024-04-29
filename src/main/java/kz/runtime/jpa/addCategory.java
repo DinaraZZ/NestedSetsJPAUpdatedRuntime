@@ -3,20 +3,10 @@ package kz.runtime.jpa;
 import jakarta.persistence.*;
 import kz.runtime.jpa.entity.Tree;
 
-import java.util.List;
-
-public class addCategory {
-    public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("main");
+public class AddCategory {
+    public static void addCategory(String index, String newCategoryName, EntityManagerFactory factory) {
         EntityManager manager = factory.createEntityManager();
 
-        String index = "0"; // v processory
-        String category = "Бытовая техника";
-
-        addCategory(index, category, manager);
-    }
-
-    public static void addCategory(String index, String newCategoryName, EntityManager manager) {
         try {
             manager.getTransaction().begin();
 

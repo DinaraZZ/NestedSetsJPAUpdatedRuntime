@@ -5,16 +5,9 @@ import kz.runtime.jpa.entity.Tree;
 
 import java.util.List;
 
-public class findCategory {
-    public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("main");
+public class FindCategory {
+    public static void findByCategory(String category, EntityManagerFactory factory) {
         EntityManager manager = factory.createEntityManager();
-
-        String category = "Комплектующие";
-        findByCategory(category, manager);
-    }
-
-    public static void findByCategory(String category, EntityManager manager) {
         try {
             TypedQuery<Tree> treeQuery = manager.createQuery(
                     "select t from Tree t where t.name = ?1", Tree.class);

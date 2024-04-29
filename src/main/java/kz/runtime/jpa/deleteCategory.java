@@ -4,17 +4,9 @@ import jakarta.persistence.*;
 import kz.runtime.jpa.entity.Tree;
 
 
-public class deleteCategory {
-
-    public static void main(String[] args) {
-
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("main");
+public class DeleteCategory {
+    public static void deleteCategory(String index, EntityManagerFactory factory) {
         EntityManager manager = factory.createEntityManager();
-        deleteCategory("2", manager);
-
-    }
-
-    public static void deleteCategory(String index, EntityManager manager) {
         try {
             manager.getTransaction().begin();
             Tree categoryDeleted = manager.find(Tree.class, Integer.parseInt(index));

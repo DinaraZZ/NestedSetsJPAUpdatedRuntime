@@ -1,20 +1,12 @@
 package kz.runtime.jpa;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import kz.runtime.jpa.entity.Tree;
 
-public class moveCategory {
-    public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("main");
+public class MoveCategory {
+    public static void moveCategory(String fromId, String toId, EntityManagerFactory factory) {
         EntityManager manager = factory.createEntityManager();
 
-        moveCategory("2", "0", manager); // Процессоры в аудиотехнику
-//        manager.clear();
-//        showTree.showTree(manager);
-    }
-
-    public static void moveCategory(String fromId, String toId, EntityManager manager) {
         int indexInt = Integer.parseInt(toId);
 
         Tree to = manager.find(Tree.class, Integer.parseInt(toId));
